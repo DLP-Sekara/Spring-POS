@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>lk.ijse.spring</groupId>
-    <artifactId>Spring POS</artifactId>
+    <artifactId>SpringPOS</artifactId>
     <version>1.0.0</version>
 <packaging>war</packaging>
     <properties>
