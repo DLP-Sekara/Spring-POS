@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("item")
 public class ItemController {
     @Autowired
-    //CustomerServiceImpl customerService;
     ItemService itemService;
 
 
@@ -42,7 +41,6 @@ public class ItemController {
 
     @GetMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchItem(@PathVariable String id){
-        // customerService.searchCustomer(id);
         return new ResponseUtil(200,"Done",itemService.searchItem(id));
     }
 }
