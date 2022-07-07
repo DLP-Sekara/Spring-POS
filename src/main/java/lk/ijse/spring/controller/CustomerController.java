@@ -19,29 +19,35 @@ public class CustomerController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCustomer(){
-        //customerService.getAllCustomer();
         return new ResponseUtil(200,"Done",customerService.getAllCustomer());
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil saveCustomer(@ModelAttribute CustomerDto customer){
+        System.out.println("menna awa" + customer);
         customerService.saveCustomer(customer);
-        return new ResponseUtil(200,"Done",null);
+        return new ResponseUtil(200,"Customer Added successfully",null);
     }
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateCustomer(@RequestBody CustomerDto customer){
+        System.out.println(customer);
         customerService.updateCustomer(customer);
-        return new ResponseUtil(200,"Done",null);
+        return new ResponseUtil(200,"Customer updated successfully",null);
     }
 
-    @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteCustomer(@RequestParam String id){
-        customerService.deleteCustomer(id);
-        return new ResponseUtil(200,"Done",null);
+    @DeleteMapping(params = {"nic"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteCustomer(@RequestParam String nic){
+        customerService.deleteCustomer(nic);
+        return new ResponseUtil(200,"Customer deleted successfully",null);
     }
 
-    @GetMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil searchCustomer(@PathVariable String id){
-        return new ResponseUtil(200,"Done",customerService.searchCustomer(id));
+  /*  @GetMapping(path="/{nic}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil searchCustomer(@PathVariable String nic){
+        return new ResponseUtil(200,"Done",customerService.searchCustomer(nic));
+    }*/
+
+    @GetMapping(path="/{nic}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil checkAvailability(@PathVariable String nic){
+        return new ResponseUtil(200,"Done",customerService.checkAvailability(nic));
     }
 }

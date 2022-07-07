@@ -35,9 +35,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomer(String id) {
-        if (repo.existsById(id)) {
-            repo.deleteById(id);
+    public void deleteCustomer(String nic) {
+        if (repo.existsById(nic)) {
+            repo.deleteById(nic);
         } else {
             throw new RuntimeException("Please check the customer nic");
         }
@@ -54,9 +54,9 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDto searchCustomer(String id) {
-        if (repo.existsById(id)) {
-            Customer customer = repo.findById(id).get();
+    public CustomerDto searchCustomer(String nic) {
+        if (repo.existsById(nic)) {
+            Customer customer = repo.findById(nic).get();
             CustomerDto map = mapper.map(customer, CustomerDto.class);
             return map;
         } else {
@@ -69,6 +69,15 @@ public class CustomerServiceImpl implements CustomerService {
         List<Customer> all = repo.findAll();
         return mapper.map(all,new TypeToken<List<CustomerDto>>(){}.getType());
 
+    }
+
+    @Override
+    public boolean checkAvailability(String nic) {
+        if(repo.existsById(nic)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }

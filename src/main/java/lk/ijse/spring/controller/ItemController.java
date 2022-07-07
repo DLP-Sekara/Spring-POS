@@ -24,6 +24,7 @@ public class ItemController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil saveItem(@ModelAttribute ItemDto item){
+        System.out.println("menna awaa"+ item);
         itemService.saveItem(item);
         return new ResponseUtil(200,"Done",null);
     }

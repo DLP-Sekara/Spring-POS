@@ -8,11 +8,13 @@ public interface CustomerService {
 
     void saveCustomer(CustomerDto customerDto);
 
-    void deleteCustomer(String id);
+    void deleteCustomer(String nic);
 
     void updateCustomer(CustomerDto customerDto);
 
-    CustomerDto searchCustomer(String id);
+    CustomerDto searchCustomer(String nic);
 
     List<CustomerDto> getAllCustomer();
+
+    boolean checkAvailability(String nic);
 }
