@@ -34,14 +34,18 @@ public class ItemController {
         return new ResponseUtil(200,"Done",null);
     }
 
-    @DeleteMapping(params = {"id"},produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteItem(@RequestParam String id){
-        itemService.deleteItem(id);
+    @DeleteMapping(params = {"code"},produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deleteItem(@RequestParam String code){
+        itemService.deleteItem(code);
         return new ResponseUtil(200,"Done",null);
     }
 
-    @GetMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+   /* @GetMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil searchItem(@PathVariable String id){
         return new ResponseUtil(200,"Done",itemService.searchItem(id));
-    }
+    }*/
+   @GetMapping(path="/{code}",produces = MediaType.APPLICATION_JSON_VALUE)
+   public ResponseUtil checkAvailability(@PathVariable String code){
+       return new ResponseUtil(200,"Done",itemService.checkAvailability(code));
+   }
 }

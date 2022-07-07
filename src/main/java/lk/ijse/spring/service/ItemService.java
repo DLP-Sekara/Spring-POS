@@ -15,4 +15,6 @@ public interface ItemService {
     ItemDto searchItem(String id);
 
     List<ItemDto> getAllItem();
+
+    boolean checkAvailability(String code);
 }

@@ -73,4 +73,13 @@ public class ItemServiceImpl implements ItemService {
         return mapper.map(all,new TypeToken<List<ItemDto>>(){}.getType());
 
     }
+
+    @Override
+    public boolean checkAvailability(String code) {
+        if (repo.existsById(code)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
