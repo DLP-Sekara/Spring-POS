@@ -7,20 +7,16 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-/**
- * @author : Sanu Vithanage
- * @since : 0.1.0
- **/
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
 @ToString
-@IdClass(OrderDetails_PK.class)
+//@IdClass(OrderDetails_PK.class)
+@Entity
 public class OrderDetails {
     @Id
     private String oid;
-    @Id
     private String itemCode;
     private String itemName;
     private double unitPrice;

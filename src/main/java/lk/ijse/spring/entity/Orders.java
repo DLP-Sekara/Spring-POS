@@ -14,12 +14,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
 @ToString
+@Entity
 public class Orders {
-    @Id
+   @Id
     private String oid;
     private LocalDate date;
+    private String customerName;
     private double totalPrice;
     private double cash;
     private double discount;
