@@ -24,7 +24,7 @@ public class OrderDto {
     private double totalPrice;
     private double cash;
     private double discount;
-    private Customer customer;
+    private CustomerDto customer;
     private List<OrderDetails> orderDetails;
 
 }

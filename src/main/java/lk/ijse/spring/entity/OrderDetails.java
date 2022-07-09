@@ -28,9 +28,9 @@ public class OrderDetails {
     @JoinColumn(name = "oid",referencedColumnName = "oid",insertable = false,updatable = false)
     private Orders orders;
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name = "itemCode",referencedColumnName = "code",insertable = false,updatable = false)
-    private Item items;
+    private Item items;*/
 
 
 }

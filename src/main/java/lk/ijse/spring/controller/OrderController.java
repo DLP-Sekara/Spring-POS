@@ -25,6 +25,7 @@ public class OrderController {
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil saveOrder(@ModelAttribute OrderDto orderDto){
+        System.out.println(orderDto);
         ordersService.purchaseOrder(orderDto);
         return new ResponseUtil(200,"Order Added successfully",null);
     }
